@@ -36,10 +36,15 @@ const RecipeCard = ({ recipe }) => {
         target="_blank"
         className="relative h-32"
       >
+        <div className="skeleton abusolute inset-0" />
         <img
           src={recipe.image}
           alt="recipe img"
-          className="rounded-md w-full h-full object-cover cursor-pointer"
+          className="rounded-md w-full h-full object-cover cursor-pointer opacity-0 transition-opacity duration-500"
+          onLoad={(e) => {
+            e.currentTarget.style.opacity = 1;
+            e.currentTarget.previousElementSibling.style.display = "none"; // Will stop showing skeleton on load
+          }}
         />
         <div className="absolute bottom-2 left-2 bg-white rounded-full p-1 cursor-pointer flex items-center gap-1 text-sm">
           <Soup /> {recipe.yield} Servings
