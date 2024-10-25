@@ -2,8 +2,8 @@ import { Search } from "lucide-react";
 import RecipeCard from "../components/RecipeCard";
 import { useEffect, useState } from "react";
 
-const APP_ID = "31a09b46";
-const APP_KEY = "335add0401ce7c41721d623b3aad00d5";
+const APP_ID = import.meta.env.VITE_APP_ID;
+const APP_KEY = import.meta.env.VITE_APP_KEY;
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
